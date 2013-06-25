@@ -53,7 +53,8 @@ class Main(object):
     def _cleanup(self):
         logging.info('Cleaning up...')
         if self.led_control is not None:
-            self.led_control.randomFading(100)
+            self.led_control.setMaster(0, led=0b1110)
+            self.led_control.randomFading(100, led=1)
             self.led_control.stop()
             self.led_control = None
         logging.info('Done.')
